@@ -1,7 +1,37 @@
 {% extends "base.html" %}
-
 {% block content %}
-
-    <h1>Hello There World!</h1>
-
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Image</th>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Year</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Tag</th>
+            <th>Rating</th>
+            <th>Views</th>
+            <th>Buy</th>
+            <th>Cart</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+                <td><img height="100" width="100" src="{{ MEDIA_URL }}{{ product.image }}"></td>
+                <td>{{ product.title }}</td>
+                <td>{{ product.author }}</td>
+                <td>{{ product.year }}</td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.tag }}</td>
+                <td>{{ product.rating }}</td>
+                <td>{{ product.views }}</td>
+                <td><a href={% url 'buy_now_stripe' product.id %}>Buy Now</a></td>
+                <td><a href="#">Add To Cart</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}

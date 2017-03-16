@@ -5,7 +5,11 @@ from django.contrib.auth.decorators import login_required
 from accounts.forms import UserRegistrationForm, UserLoginForm
 from django.template.context_processors import csrf
 
+
 # Create your views here.
+
+
+
 def logout(request):
     auth.logout(request)
     messages.success(request, 'You have successfully logged out')
